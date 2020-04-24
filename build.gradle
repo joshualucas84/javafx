@@ -1,0 +1,52 @@
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+    	mavenCentral()
+    }
+	    dependencies {
+		classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+       }
+}
+
+apply plugin: 'java'
+apply plugin: 'javafx-gradle-plugin'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+
+
+
+jfx {
+    // minimal requirement for jfxJar-task
+    mainClass = 'org.test.demogui.TrideumDemoGUI'
+    
+    // minimal requirement for jfxNative-task
+    vendor = 'test'
+} 
+
+
+
+
+mainClassName = 'org.test.demogui.TrideumDemoGUI'
+
+
+dependencies {
+   // compile group: 'org.apache.poi', name: 'poi', version: '4.0.0'
+}
+
+
+
+/*jar {
+    doFirst {
+        manifest {
+            if (!configurations.compile.isEmpty()) {
+                attributes(
+                        'Class-Path': configurations.compile.collect{it.toURI().toString()}.join(' '),
+                        'Main-Class': 'org.test.demogui.TriduemDemoGUII')
+            }
+        }
+    }
+}*/
